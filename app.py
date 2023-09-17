@@ -121,7 +121,7 @@ def criar_tarefa_em_projeto(projeto_id):
     }
 
     tarefas.append(nova_tarefa)
-    return jsonify(nova_tarefa), 201, {'Content-Type': 'application/json; charset=utf-8'}
+    return jsonify(nova_tarefa), 201
 
 # Retorna todas as tarefas do projeto pelo ID do projeto.
 @app.route('/projetos/<int:id>/tarefas', methods=['GET'])
