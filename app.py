@@ -3,6 +3,9 @@ from flask import Flask, Response, request, jsonify
 app = Flask(__name__)
 
 app.config['JSON_AS_ASCII'] = False
+
+port = 8080
+
 projetos = [
     {"id": 1, "nome": "Registro Brasileiro de Transplantes 2.0", "descricao": "A STEMIS, em parceria com a Magnus Tecnologia e com a Associação Brasileira de Transplante de Órgãos (ABTO), está desenvolvendo o segundo sistema do RBT (Registro Brasileiro de Transplantes). Nosso principal objetivo é criar uma ferramenta de gestão e armazenamento de dados para modernizar o processo de transplante no Brasil."},
 
@@ -178,7 +181,7 @@ def excluir_tarefa(projeto_id, tarefa_id):
     tarefas.remove(tarefa)
     return jsonify({"mensagem": "Tarefa excluída com sucesso"}), 200
 
-app.run()
+app.run(host='0.0.0.0', port=port)
 
 
 
